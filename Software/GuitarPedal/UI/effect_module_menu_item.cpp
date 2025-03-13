@@ -44,7 +44,7 @@ void EffectModuleMenuItem::Draw(OneBitGraphicsDisplay &display, int currentIndex
     // If there is nothing to draw fill in some basic information.
     if (m_effectModule == nullptr) {
         display.WriteStringAligned("Daisy Guitar Pedal", Font_7x10, boundsToDrawIn, Alignment::topCentered, true);
-        display.WriteStringAligned("Made by", Font_7x10, boundsToDrawIn, Alignment::centered, true);
+        display.WriteStringAligned("Designed by", Font_7x10, boundsToDrawIn, Alignment::centered, true);
         display.WriteStringAligned("Keith Shepherd", Font_7x10, boundsToDrawIn, Alignment::bottomCentered, true);
 
         return;
