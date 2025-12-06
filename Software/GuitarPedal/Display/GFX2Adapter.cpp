@@ -31,6 +31,9 @@ void GFX2Adapter::Init() {
     INIT_DISPLAY(__Display);
     display_ = &__Display;
     
+    // Set display rotation PERMANENTLY to landscape (270 degrees)
+    display_->setOrientation(Rotation::Degre_270);
+    
     // Add the main layer at position (0,0) with Z-order 1
     layer_ = ADD_LAYER(MainLayer, 0, 0, 1);
     

@@ -23,8 +23,14 @@ public:
     // ===== OneBitGraphicsDisplay PURE VIRTUAL interface =====
     
     // Dimensions
-    uint16_t Height() const override { return TFT_HEIGHT; }
-    uint16_t Width() const override { return TFT_WIDTH; }
+    // Dimensions - return actual display dimensions after rotation
+    uint16_t Height() const override { 
+    return display_ ? display_->getHeight() : TFT_HEIGHT; 
+    }
+
+    uint16_t Width() const override { 
+    return display_ ? display_->getWith() : TFT_WIDTH; 
+    }
     
     // Fill screen
     void Fill(bool on) override;
@@ -84,6 +90,7 @@ private:
     DadGFX::sColor background_color_;
     uint_fast8_t cursor_x_;
     uint_fast8_t cursor_y_;
+
 };
 
 } // namespace bkshepherd
