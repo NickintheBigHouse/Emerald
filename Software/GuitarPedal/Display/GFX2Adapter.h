@@ -3,6 +3,7 @@
 #include "../dependencies/GFX2/cDisplay.h"
 #include "../dependencies/GFX2/GFX.h"
 #include "../dependencies/GFX2/Fonts/FreeSans12pt7b.h"
+#include "../dependencies/GFX2/TFT_SPI.h"
 
 namespace bkshepherd {
 

@@ -286,15 +286,40 @@ void GFX2Adapter::TestFill(uint8_t r, uint8_t g, uint8_t b) {
 void GFX2Adapter::TestDrawingPrimitives() {
     if (!layer_ || !gfx_font_) return;
     
-    // Test text rendering
+     // Set display rotation to 270 degrees (landscape) - note the namespace!
+    if (display_) {
+        display_->setOrientation(Rotation::Degre_270);
+    }
+    
+    // Clear screen
     layer_->eraseLayer(background_color_);
     display_->flush();
     
-    SetCursor(10, 30);
-    WriteString("Emerald", Font_7x10, true);
+    // Get display dimensions after rotation
+    uint16_t display_width = display_->getWith();
+    uint16_t display_height = display_->getHeight();
     
-    SetCursor(10, 60);
-    WriteString("By Spencer Wilde", Font_11x18, true);
+    // Calculate text dimensions and center positions
+    const char* text1 = "Emerald";
+    const char* text2 = "SHW";
+    
+    uint16_t text1_width = gfx_font_->getTextWidth(text1);
+    uint16_t text2_width = gfx_font_->getTextWidth(text2);
+    uint8_t text_height = gfx_font_->getHeight();
+    
+    // Center first line of text
+    uint16_t x1 = (display_width - text1_width) / 2;
+    uint16_t y1 = (display_height / 2) - text_height;
+    
+    SetCursor(x1, y1);
+    WriteString(text1, Font_7x10, true);
+    
+    // Center second line of text
+    uint16_t x2 = (display_width - text2_width) / 2;
+    uint16_t y2 = (display_height / 2) + 10;
+    
+    SetCursor(x2, y2);
+    WriteString(text2, Font_11x18, true);
     
     Update();
     daisy::System::Delay(3000);
