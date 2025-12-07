@@ -17,6 +17,7 @@
 #include "Effect-Modules/delay_module.h"
 #include "Effect-Modules/distortion_module.h"
 #include "Effect-Modules/drum_module.h"
+#include "Effect-Modules/flanger_module.h"
 #include "Effect-Modules/geq_module.h"
 #include "Effect-Modules/granulardelay_module.h"
 #include "Effect-Modules/ir_module.h"
@@ -28,6 +29,7 @@
 #include "Effect-Modules/noise_gate_module.h"
 #include "Effect-Modules/overdrive_module.h"
 #include "Effect-Modules/peq_module.h"
+#include "Effect-Modules/phaser_module.h"
 #include "Effect-Modules/pitch_shifter_module.h"
 #include "Effect-Modules/polyoctave_module.h"
 #include "Effect-Modules/reverb_module.h"
@@ -73,6 +75,8 @@ void load_effects(int &availableEffectsCount, BaseEffectModule **&availableEffec
         new GranularDelayModule(), 
         new IrModule(),
         new DrumModule(),  // This module can be used with MIDI keyboard as a drum machine
+        new PhaserModule(),
+        new FlangerModule(),
 
         // The following require a MIDI keyboard
         // new MidiKeysModule(),
