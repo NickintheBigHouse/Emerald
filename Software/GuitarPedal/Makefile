@@ -7,6 +7,8 @@ CPP_STANDARD = -std=gnu++20
 
 CPP_SOURCES = guitar_pedal.cpp guitar_pedal_storage.cpp $(wildcard UI/*.cpp) $(wildcard Util/*.cpp) \
 $(wildcard Hardware-Modules/*.cpp)
+CPP_SOURCES += Display/GFX2Adapter.cpp
+CPP_SOURCES += $(wildcard dependencies/GFX2/*.cpp)
 CPP_SOURCES += Effect-Modules/base_effect_module.cpp
 
 # Naming the module sources explicitly to make it easier to add/remove from build. Otherwise all global attributes
@@ -31,7 +33,7 @@ CPP_SOURCES += Effect-Modules/ImpulseResponse/dsp.cpp
 CPP_SOURCES += Effect-Modules/ir_module.cpp
 CPP_SOURCES += Effect-Modules/looper_module.cpp
 CPP_SOURCES += Effect-Modules/metro_module.cpp
-CPP_SOURCES += Effect-Modules/modulated_tremolo_module.cpp
+CPP_SOURCES += Effect-Modules/modulated_tremolo_module.cpp # tremolo
 CPP_SOURCES += Effect-Modules/multi_delay_module.cpp
 CPP_SOURCES += Effect-Modules/nam_module.cpp
 CPP_SOURCES += Effect-Modules/noise_gate_module.cpp

@@ -1,6 +1,3 @@
-// Edit the contents of this file to populate the available effects that you
-// want to use
-
 #ifndef LOADED_EFFECTS_H
 #define LOADED_EFFECTS_H
 #pragma once
@@ -23,7 +20,7 @@
 #include "Effect-Modules/ir_module.h"
 #include "Effect-Modules/looper_module.h"
 #include "Effect-Modules/metro_module.h"
-#include "Effect-Modules/modulated_tremolo_module.h"
+#include "Effect-Modules/modulated_tremolo_module.h" //tremolo
 #include "Effect-Modules/multi_delay_module.h"
 #include "Effect-Modules/nam_module.h"
 #include "Effect-Modules/noise_gate_module.h"
@@ -47,7 +44,6 @@
 namespace bkshepherd {
 
 void load_effects(int &availableEffectsCount, BaseEffectModule **&availableEffects) {
-    // clang-format off
     static BaseEffectModule* effectList[] = {
         new ModulatedTremoloModule(),
         new OverdriveModule(),
@@ -85,8 +81,7 @@ void load_effects(int &availableEffectsCount, BaseEffectModule **&availableEffec
         // new ModalKeysModule(),
         // new FmKeysModule(),
     };
-    // clang-format on
-
+    
     availableEffectsCount = sizeof(effectList) / sizeof(effectList[0]);
     availableEffects = effectList;
 }

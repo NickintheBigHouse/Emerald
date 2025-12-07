@@ -13,7 +13,7 @@ using namespace bkshepherd;
 // Uncomment the version you are trying to use, by default (and if nothing is
 // uncommented), the 125B with 2 footswitch variant will be used
 
-// #define VARIANT_125B
+#define VARIANT_125B
 // #define VARIANT_1590B
 // #define VARIANT_1590B_SMD
 // #define VARIANT_TERRARIUM
@@ -556,6 +556,26 @@ int main(void) {
     const bool boost = true; // true enables cpu boost (480Mhz instead of 400Mhz)
 
     hardware.Init(blockSize, boost);
+
+// Phase II
+// Test the display drawing primitives
+ if (hardware.SupportsDisplay()) {
+    //__Display.setOrientation(Rotation::Degre_270);
+    bkshepherd::GFX2Adapter* display_adapter = 
+        static_cast<bkshepherd::GFX2Adapter*>(&hardware.display);
+   /*  
+    // Run the drawing primitives test
+    display_adapter->TestDrawingPrimitives();
+    
+    // Give user time to see the results
+    hardware.DelayMs(2000);
+
+    */
+
+
+    hardware.display.TestDrawingPrimitives();  // This will show "Hello GFX2!" text
+
+}
 
     const float sample_rate = hardware.AudioSampleRate();
 
